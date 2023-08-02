@@ -18,8 +18,7 @@
                 @auth
                 <div class="action">
                     <div class="profile" onclick="menuToggle();">
-                        <img src="" alt="Profile Picture">
-                        <p>Profil</p>
+                        <img src="{{ asset("images/avatar.png")}}" alt="Profile Picture">
                     </div>
                     <div class="menu">
                         <h3>{{ Auth::user()->name }}<br />
@@ -27,12 +26,12 @@
                                 <li>
                                     <a href="{{ url('/profiles') }}">Profile</a>
                                 </li>
-                                {{-- <li>
+                                <li>
                                     <a href="{{ url('/profiles/edit') }}">Edit profile</a>
-                                </li> --}}
-                                {{-- <li>
+                                </li>
+                                <li>
                                     <a href="{{ url('/create/karya') }}">Buat Komik / Novel</a>
-                                </li> --}}
+                                </li>
                                 <li>
                                     <a href="{{ route('logout') }}">Logout</a>
                                 </li>
@@ -40,9 +39,21 @@
                     </div>
                 </div>
                 @else
-                <div class="col-md-3 text-end">
-                    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
+                <div class="action">
+                    <div class="profile" onclick="menuToggle();">
+                        <img src="{{ asset("images/avatar.png")}}" alt="Profile Picture">
+                    </div>
+                    <div class="menu">
+                        <h3>Guest<br />
+                            <ul>
+                                <li>
+                                    <a href="{{ route('login') }}">Login</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('register') }}">Register</a>
+                                </li>
+                            </ul>
+                    </div>
                 </div>
                 @endauth
                 <div class="menu-header">
