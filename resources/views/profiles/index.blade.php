@@ -164,6 +164,8 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary"
                                             data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><a
+                                                href="{{ url('/dashboard') }}">Home</button>
                                     </div>
                                 </div>
                             </div>
@@ -184,34 +186,59 @@
                     <div class="card">
                         <div class="card-header d-flex p-0">
                             <ul class="nav nav-pills p-2 mx-auto nav-justified">
-                                <li class="nav-item"><a class="nav-link active" href="#tab_1"
-                                        data-toggle="tab">Beranda</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_1" data-toggle="tab">Beranda</a>
+                                </li>
                                 <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Karya</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Novel</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Komik</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#tab_5" data-toggle="tab">Following</a>
-                                </li>
-                                <li class="nav-item"><a class="nav-link" href="#tab_6" data-toggle="tab">Info</a></li>
+                                <li class="nav-item"><a class="nav-link active" href="#tab_5"
+                                        data-toggle="tab">Info</a></li>
                             </ul>
                         </div>
                         <div class="card-body">
                             <div class="tab-content">
-                                {{-- <div class="tab-pane active" id="tab_1">
-                                    //ini beranda
-                                    <div class="card" style="width: 18rem;">
-                                        <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
-                                            class="card-img-top" alt="...">
-                                        <div class="card-body">
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the
-                                                bulk of the card's content.</p>
+                                <div class="tab-pane" id="tab_1">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/a.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">shadow slave</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/Infinite_Mage.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">infinity Mage</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div> --}}
+                                </div>
 
                                 <div class="tab-pane" id="tab_2">
                                     <div class="row">
-                                        @foreach ($karya as $item)
+                                        {{-- @foreach ($karya as $item)
                                             @if ($item->type == 'Novel' || $item->type == 'Komik')
                                                 <div class="col-sm-3">
                                                     @if ($item->type == 'Novel')
@@ -256,13 +283,115 @@
                                                     @endif
                                                 </div>
                                             @endif
-                                        @endforeach
+                                        @endforeach --}}
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/1.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">the beginning after and the end</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/a.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">shadow slave</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/b.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">dimensional descendant</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/IMG-20210422-WA0022-768x1018-1.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">devil</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/Level-Up-Doctor-1-2.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">level-up doctor</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/Infinite_Mage.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">infinity Mage</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane" id="tab_3">
                                     <div class="row">
-                                        @foreach ($karya as $item)
+                                        {{-- @foreach ($karya as $item)
                                             @if ($item->type == 'Novel')
                                                 <div class="col-sm-3">
                                                     <div class="card" style="width: 18rem;">
@@ -283,20 +412,71 @@
                                                     </div>
                                                 </div>
                                             @endif
-                                        @endforeach
+                                        @endforeach --}}
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/1.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">the beginning after and the end</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/a.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">shadow slave</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/b.jpg') }}" class="card-img-top"
+                                                    alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">dimensional descendant</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane" id="tab_4">
                                     <div class="row">
-                                        @foreach ($karya as $item)
+                                        {{-- @foreach ($karya as $item)
                                             @if ($item->type == 'Komik')
                                                 <div class="col-sm-3">
                                                     <div class="card" style="width: 18rem;">
                                                         <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
                                                             class="card-img-top" alt="...">
                                                         <div class="card-body">
-                                                            <h5 class="card-title">{{ $item->nama_karya }}</h5>
+                                                            <h5 class="card-title">Devil</h5>
                                                             <p class="card-text">{{ $item->about }}</p>
                                                             <a href="#" class="btn btn-primary"> Baca <svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16"
@@ -310,50 +490,62 @@
                                                     </div>
                                                 </div>
                                             @endif
-                                        @endforeach
+                                        @endforeach --}}
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/IMG-20210422-WA0022-768x1018-1.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">devil</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/Level-Up-Doctor-1-2.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">level-up doctor</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <div class="card" style="width: 18rem;">
+                                                <img src="{{ asset('storage/Infinite_Mage.jpg') }}"
+                                                    class="card-img-top" alt="...">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">infinity Mage</h5>
+                                                    <p class="card-text">chapter 1</p>
+                                                    <a href="#" class="btn btn-primary"> Baca <svg
+                                                            xmlns="http://www.w3.org/2000/svg" width="16"
+                                                            height="16" fill="currentColor"
+                                                            class="bi bi-arrow-right-short" viewBox="0 0 16 16">
+                                                            <path fill-rule="evenodd"
+                                                                d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
+                                                        </svg></a>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
                                 <div class="tab-pane" id="tab_5">
-
-                                    <section class="content">
-                                        <div class="card-body">
-                                            <form method="POST" action="{{ route('profile.update') }}"
-                                                enctype="multipart/form-data">
-                                                @csrf
-                                                @method('PATCH')
-                                                <div class="form-group">
-                                                    <label for="inputName">Name</label>
-                                                    <input type="text" id="inputName" class="form-control"
-                                                        name="name" value="{{ $user->name }}">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputEmail">Email</label>
-                                                    <input type="email" id="inputEmail" class="form-control"
-                                                        name="email" value="{{ $user->email }}">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputPhone">Phone</label>
-                                                    <input type="text" id="inputPhone" class="form-control"
-                                                        name="no_tlpn" value="{{ $user->no_tlpn }}">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputProfilePic">Profile Picture</label>
-                                                    <input type="file" id="inputProfilePic" class="form-control"
-                                                        name="profile_pic">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="inputAbout">About</label>
-                                                    <textarea id="inputAbout" class="form-control" name="about" rows="4">{{ $user->about }}</textarea>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Update Profile</button>
-                                            </form>
-                                        </div>
-                                    </section>
-
-                                </div>
-
-                                <div class="tab-pane" id="tab_6">
 
                                     <div>
                                         <div class="card-text">{{ Auth::user()->about }}</div>

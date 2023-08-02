@@ -67,7 +67,7 @@ class ProfileController extends Controller
         // Flash message
         // Session::flash('success', 'Profile updated successfully.');
 
-        return redirect()->route('profile/user/{user:username}');
+        return redirect()->route('profile.index');
     }
 
 

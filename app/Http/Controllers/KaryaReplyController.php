@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\karya_reply;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class KaryaReplyController extends Controller
 {
@@ -30,6 +31,11 @@ class KaryaReplyController extends Controller
     public function store(Request $request)
     {
         //
+        $comment = karya_reply::create([
+            'user_id' => Auth::user()->id,
+            'description' => $request->content,
+        ]);
+        return view("partials.comment", compact("comment"));
     }
 
     /**

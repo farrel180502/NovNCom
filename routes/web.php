@@ -35,7 +35,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profiles/user/{user:username}', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profiles', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profiles/edit', [ProfileController::class, 'edit'])->name('profile.edit');
 
     Route::post('/profiles/follow', [FollowingController::class, 'store'])->name('follow');
@@ -44,6 +44,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profiles/{user}/following', [FollowingController::class, 'index'])->name('following.index');
+    Route::get('/following', [FollowingController::class, 'viewfollower']);
     Route::post('/profiles/{user}', [FollowingController::class, 'store'])->name('following.store');
     Route::get('/profiles/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
 });

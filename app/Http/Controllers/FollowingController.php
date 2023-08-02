@@ -30,4 +30,9 @@ class FollowingController extends Controller
 
         return redirect()->route('profiles', $user->userName());
     }
+
+    public function viewfollower()
+    {
+        return view('following.index');
+    }
 }
