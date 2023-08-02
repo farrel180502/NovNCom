@@ -11,8 +11,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
 
         {{-- STYLE --}}
+        <link rel="stylesheet" href="{{ asset('/plugins/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('/plugins/ekko-lightbox/ekko-lightbox.css') }}">
+        <link rel="stylesheet" href="{{ asset('/dist/css/adminlte.min.css?v=3.2.0') }}">
+        <link rel="stylesheet" href="{{ asset('/dist/bsccs/bootstrap.css') }}">
         <link rel="stylesheet" href="{{ asset("css/app.css") }}">
-
     </head>
     <body>
         @include("partials.header")
@@ -25,4 +28,6 @@
           toggleMenu.classList.toggle("active");
         }
     </script>
+    
 </html>
+

@@ -18,9 +18,18 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // return view('welcome');
     return view('home.index');
 });
 
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', function () {
     return view('home.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,7 +43,9 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
-    // Route::get('/profiles', [CommentController::class, 'index'])->name('profile.index');
+    Route::get('/profiles/{user}/following', [FollowingController::class, 'index'])->name('following.index');
+    Route::post('/profiles/{user}', [FollowingController::class, 'store'])->name('following.store');
+    Route::get('/profiles/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
 });
 
 Route::get('logout', function () {
