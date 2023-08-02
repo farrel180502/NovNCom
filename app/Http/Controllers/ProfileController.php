@@ -20,7 +20,7 @@ class ProfileController extends Controller
         // $user = User::where('id', $user->id)->get();
 
 
-        $karya = Karya::where('user_id', $user->id)->get();
+        $karya = karya::where('user_id', $user->id)->get();
         return view('profiles.index', [
             'karya' => $karya,
             'user' => $user,
@@ -65,7 +65,7 @@ class ProfileController extends Controller
         $user->update($request->except('profile_pic'));
 
         // Flash message
-        Session::flash('success', 'Profile updated successfully.');
+        // Session::flash('success', 'Profile updated successfully.');
 
         return redirect()->route('profile.index');
     }
