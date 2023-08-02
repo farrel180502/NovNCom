@@ -1,27 +1,39 @@
-@extends("layouts.master")
-@section("content")
-<div class="card-body">
-    <div class="tab-content">
-        <div class="tab-pane" id="tab_2">
-            <div class="row">
-                <div class="card" style="width: 18rem;">
-                    <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
-                        class="card-img-top" alt="...">
+@extends('layouts.master')
+@section('content')
+<div class="container">
+    <h5>Komik Terbaru</h5>
+        <div class="row gap">
+            <div class="card" style="width: 18rem;">
+                <div class="col-lg-6 mb-4">
+                    <img src="{{ asset("images/Omniscient Third View Point.jpg")}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                        {{-- <h5 class="card-title">{{ $item->nama_karya }}</h5>
-                        <p class="card-text">{{ $item->about }}</p> --}}
-                        <a href="#" class="btn btn-primary"> Baca <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16" height="16"
-                                fill="currentColor"
-                                class="bi bi-arrow-right-short"
-                                viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z" />
-                            </svg></a>
+                        <h5 class="card-title">Omniscient Third View Point</h5>
+                        <p class="card-text">Seorang pembaca komik yang mengetahui reinkanasi seorang MC</p>
+                        <a href= "view/komik" class="btn btn-primary">Baca</a>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="card" style="width: 18rem;">
+                <div class="col-lg-6 mb-4">
+                    <img src="{{ asset("images/Overpower Manager.jpg")}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Overpower Manager</h5>
+                        <p class="card-text">Tentang manager yang sangat overpower mengurus pekerjaanya</p>
+                        <a href="#" class="btn btn-primary">Baca</a>
+                    </div>
+                </div>
+            </div>
+            <div class="card" style="width: 18rem;">
+                <div class="col-lg-6 mb-4">
+                    <img src="{{ asset("images/Druid.jpg")}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Druid</h5>
+                        <p class="card-text">Seorang yang mendapatkan kekuatan druid</p>
+                        <a href="#" class="btn btn-primary">Baca</a>
+                    </div>
+                </div>
+            </div>
+        </div>        
     </div>
-</div>   
+</div>
+@endsection
