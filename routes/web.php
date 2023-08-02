@@ -1,6 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\KomikController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\FollowingController;
+use App\Http\Controllers\KaryaController;
+use App\Http\Controllers\NovelController;
+use App\Models\Karya;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +21,70 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    // return view('welcome');
     return view('home.index');
 });
 
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return view('home.index');
+})->middleware(['auth', 'verified'])->name('home');
+
+#User
+// Route::group([
+//     'as' => 'user',
+//     'prefix' =>'user',
+//     'controller' => ProfileController::class,
+// ],function () {
+//     Route::get('/profiles', [ProfileController::class, 'index'])->name('profile.index');
+//     Route::get('/profiles/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::get('/profiles', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profiles/edit', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/profiles/{user}/following', [FollowingController::class, 'index'])->name('following.index');
+    Route::post('/profiles/{user}', [FollowingController::class, 'store'])->name('following.store');
+    Route::get('/profiles/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
 });
 
-require __DIR__.'/auth.php';
+#Karya
+Route::get('/create/karya',[KaryaController::class, 'index'])->name('createkarya');
+
+Route::get('/home', [KaryaController::class, 'index'])->name('home');
+
+#Home
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+#Novel
+Route::get('/novel', [NovelController::class, 'index'])->name('novel');
+
+#Komik
+// Tampil Komik
+Route::get('/komik', [KomikController::class, 'index'])->name('komik');
+
+#Following
+// Tampil Following
+Route::get('/following', [FollowingController::class, 'index'])->name('following');
+
+Route::get('logout', function ()
+{
+    auth()->logout();
+    Session()->flush();
+
+    return Redirect::to('/');
+})->name('logout');
+
+require __DIR__ . '/auth.php';
