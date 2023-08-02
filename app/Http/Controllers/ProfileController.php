@@ -24,7 +24,7 @@ class ProfileController extends Controller
         return view('profiles.index', [
             'karya' => $karya,
             'user' => $user,
-        ]);
+        ], compact('user'));
     }
 
     /**
@@ -67,7 +67,7 @@ class ProfileController extends Controller
         // Flash message
         // Session::flash('success', 'Profile updated successfully.');
 
-        return redirect()->route('profile.index');
+        return redirect()->route('profile/user/{user:username}');
     }
 
 

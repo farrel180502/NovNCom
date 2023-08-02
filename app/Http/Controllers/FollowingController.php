@@ -23,4 +23,11 @@ class FollowingController extends Controller
             'following' => $following,
         ]);
     }
+
+    public function store(User $user)
+    {
+        auth()->user()->toggleFollow($user);
+
+        return redirect()->route('profiles', $user->userName());
+    }
 }

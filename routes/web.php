@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\FollowingController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Route;
@@ -24,10 +26,15 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
-    Route::get('/profiles', [ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profiles/user/{user:username}', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profiles/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+    Route::post('/profiles/follow', [FollowingController::class, 'store'])->name('follow');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    // Route::get('/profiles', [CommentController::class, 'index'])->name('profile.index');
 });
 
 Route::get('logout', function () {

@@ -4,7 +4,7 @@
             <div class="navbar">
                 <div class="logo">
                     {{-- <a href=" {{ route("homepage") }}"> --}}
-                        <img src="{{ asset("images/LogoNovCom2.png")}}" alt="DC logo">
+                    <img src="{{ asset('images/LogoNovCom2.png') }}" alt="DC logo">
                     </a>
                 </div>
 
@@ -68,33 +68,33 @@
                     </nav>
                 </div>
                 @auth
-                <div class="action">
-                    <div class="profile" onclick="menuToggle();">
-                        <img src="" alt="Profile Picture">
-                        <p>Profil</p>
+                    <div class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <img src="" alt="Profile Picture">
+                            <p>Profil</p>
+                        </div>
+                        <div class="menu">
+                            <h3>{{ Auth::user()->name }}<br />
+                                <ul>
+                                    <li>
+                                        <a href="{{ url('/profiles/user/user:username}') }}">Profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/profiles/edit') }}">Edit profile</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ url('/create/karya') }}">Buat Komik / Novel</a>
+                                    </li>
+                                    <li>
+                                        <a href="{{ route('logout') }}">Logout</a>
+                                    </li>
+                                </ul>
+                        </div>
                     </div>
-                    <div class="menu">
-                        <h3>{{ Auth::user()->name }}<br />
-                            <ul>
-                                <li>
-                                    <a href="{{ url('/profiles') }}">Profile</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/profiles/edit') }}">Edit profile</a>
-                                </li>
-                                <li>
-                                    <a href="{{ url('/create/karya') }}">Buat Komik / Novel</a>
-                                </li>
-                                <li>
-                                    <a href="{{ route('logout') }}">Logout</a>
-                                </li>
-                            </ul>
-                    </div>
-                </div>
                 @else
-                <div class="col-md-3 text-end">
-                    <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
-                    <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
-                </div>
+                    <div class="col-md-3 text-end">
+                        <a href="{{ route('login') }}" class="btn btn-outline-primary me-2">Login</a>
+                        <a href="{{ route('register') }}" class="btn btn-primary">Sign-up</a>
+                    </div>
                 @endauth
 </header>

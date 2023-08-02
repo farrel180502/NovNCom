@@ -94,8 +94,8 @@
 
 <body>
     <section class="profile">
-        <div class="container-fluid ">
-            <div class="channel-info">
+        <div class="container-fluid">
+            <div class="channel-info" style="background-color: #ffdd2a">
                 <div class="box-profile">
                     <img src="{{ asset('storage/' . $user->profile_pic) }}" alt="Profile Picture">
                 </div>
@@ -118,14 +118,29 @@
                         <div>{{ Auth::user()->Followers->count() }}</div>
                     </div>
                 </div>
-                <div>
-                    @if (Auth::id() !== $user->id)
-                        <form action="{{ route('following.store', $user) }}" method="post">
-                            @csrf
-                            <button type="submit" class="btn btn-primary">Follow</button>
-                        </form>
-                    @endif
-                </div>
+                @auth
+                    @unless (auth()->user()->is($user))
+                        <div>
+                            @if (auth()->user()->isFollowing())
+                                <form action="{{ route('follow', $user) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button>
+                                        {{ __('Unfollow') }}
+                                    </button>
+                                </form>
+                            @else
+                                <form action="{{ route('follow', $user) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button>
+                                        {{ __('Follow') }}
+                                    </button>
+                                </form>
+                            @endif
+                        </div>
+                    @endunless
+                @endauth
             </div>
         </div>
 
@@ -174,7 +189,9 @@
                                 <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Karya</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Novel</a></li>
                                 <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Komik</a></li>
-                                <li class="nav-item"><a class="nav-link" href="#tab_5" data-toggle="tab">Info</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_5" data-toggle="tab">Following</a>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_6" data-toggle="tab">Info</a></li>
                             </ul>
                         </div>
                         <div class="card-body">
@@ -203,7 +220,8 @@
                                                                 <img src="https://komik.pendidikan.id/online/cover/pesan_botol_pak_bakri-thumb.jpg"
                                                                     class="card-img-top" alt="...">
                                                                 <div class="card-body">
-                                                                    <h5 class="card-title">{{ $item->nama_karya }}</h5>
+                                                                    <h5 class="card-title">{{ $item->nama_karya }}
+                                                                    </h5>
                                                                     <p class="card-text">{{ $item->about }}</p>
                                                                     <a href="#" class="btn btn-primary"> Baca
                                                                         <svg xmlns="http://www.w3.org/2000/svg"
@@ -297,6 +315,45 @@
                                 </div>
 
                                 <div class="tab-pane" id="tab_5">
+
+                                    <section class="content">
+                                        <div class="card-body">
+                                            <form method="POST" action="{{ route('profile.update') }}"
+                                                enctype="multipart/form-data">
+                                                @csrf
+                                                @method('PATCH')
+                                                <div class="form-group">
+                                                    <label for="inputName">Name</label>
+                                                    <input type="text" id="inputName" class="form-control"
+                                                        name="name" value="{{ $user->name }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputEmail">Email</label>
+                                                    <input type="email" id="inputEmail" class="form-control"
+                                                        name="email" value="{{ $user->email }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputPhone">Phone</label>
+                                                    <input type="text" id="inputPhone" class="form-control"
+                                                        name="no_tlpn" value="{{ $user->no_tlpn }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputProfilePic">Profile Picture</label>
+                                                    <input type="file" id="inputProfilePic" class="form-control"
+                                                        name="profile_pic">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="inputAbout">About</label>
+                                                    <textarea id="inputAbout" class="form-control" name="about" rows="4">{{ $user->about }}</textarea>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Update Profile</button>
+                                            </form>
+                                        </div>
+                                    </section>
+
+                                </div>
+
+                                <div class="tab-pane" id="tab_6">
 
                                     <div>
                                         <div class="card-text">{{ Auth::user()->about }}</div>
