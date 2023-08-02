@@ -18,251 +18,135 @@
 </head>
 
 <body>
+    <section class="profile">
+        <div class="card card-primary card-outline">
+            <div class="card-body box-profile">
+                <div class="text-center">
+                    <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg"
+                        alt="User profile picture">
+                </div>
+                <div class="profile-username text-center">{{ Atuh::user()->name }}</div>
 
-    <div class="card card-primary card-outline">
-        <div class="card-body box-profile">
-            <div class="text-center">
-                <img class="profile-user-img img-fluid img-circle" src="../../dist/img/user4-128x128.jpg"
-                    alt="User profile picture">
+
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Launch demo modal
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <h3 class="profile-username text-center">Nina Mcintire</h3>
-            <p class="text-muted text-center">Software Engineer</p>
-            <ul class="list-group list-group-unbordered mb-3">
-                <li class="list-group-item">
-                    <b>Followers</b> <a class="float-right">1,322</a>
-                </li>
-                <li class="list-group-item">
-                    <b>Following</b> <a class="float-right">543</a>
-                </li>
-                <li class="list-group-item">
-                    <b>Friends</b> <a class="float-right">13,287</a>
-                </li>
-            </ul>
-            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
-        </div>
+    </section>
 
-    </div>
-
+    <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h4 class="card-title">FilterizR Gallery with Ekko Lightbox</h4>
+                    <div class="card">
+                        <div class="card-header d-flex p-0">
+                            <ul class="nav nav-pills p-2 mx-auto nav-justified">
+                                <li class="nav-item"><a class="nav-link active" href="#tab_1"
+                                        data-toggle="tab">Beranda</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_2" data-toggle="tab">Karya</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_3" data-toggle="tab">Novel</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_4" data-toggle="tab">Komik</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#tab_5" data-toggle="tab">Info</a></li>
+                            </ul>
                         </div>
                         <div class="card-body">
-                            <div>
-                                <div class="btn-group w-100 mb-2">
-                                    <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> All
-                                        items </a>
-                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="1"> Category 1
-                                        (WHITE) </a>
-                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> Category 2
-                                        (BLACK) </a>
-                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> Category 3
-                                        (COLORED) </a>
-                                    <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Category 4
-                                        (COLORED, BLACK) </a>
-                                </div>
-                                <div class="mb-2">
-                                    <a class="btn btn-secondary" href="javascript:void(0)" data-shuffle> Shuffle items
-                                    </a>
-                                    <div class="float-right">
-                                        <select class="custom-select" style="width: auto;" data-sortOrder>
-                                            <option value="index"> Sort by Position </option>
-                                            <option value="sortData"> Sort by Custom Data </option>
-                                        </select>
-                                        <div class="btn-group">
-                                            <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> Ascending
-                                            </a>
-                                            <a class="btn btn-default" href="javascript:void(0)" data-sortDesc>
-                                                Descending </a>
+                            <div class="tab-content">
+                                {{-- <div class="tab-pane active" id="tab_1">
+                                    //ini beranda
+                                    <div class="card" style="width: 18rem;">
+                                        <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick example text to build on the card title and
+                                                make up the
+                                                bulk of the card's content.</p>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="filter-container p-0 row">
-                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1"
-                                            data-toggle="lightbox" data-title="sample 1 - white">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=1"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=2"
-                                            data-toggle="lightbox" data-title="sample 2 - black">
-                                            <img src="https://via.placeholder.com/300/000000?text=2"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3"
-                                            data-toggle="lightbox" data-title="sample 3 - red">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4"
-                                            data-toggle="lightbox" data-title="sample 4 - red">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=5"
-                                            data-toggle="lightbox" data-title="sample 5 - black">
-                                            <img src="https://via.placeholder.com/300/000000?text=5"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6"
-                                            data-toggle="lightbox" data-title="sample 6 - white">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=6"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7"
-                                            data-toggle="lightbox" data-title="sample 7 - white">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=7"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=8"
-                                            data-toggle="lightbox" data-title="sample 8 - black">
-                                            <img src="https://via.placeholder.com/300/000000?text=8"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="3, 4" data-sort="red sample">
-                                        <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9"
-                                            data-toggle="lightbox" data-title="sample 9 - red">
-                                            <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9"
-                                                class="img-fluid mb-2" alt="red sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10"
-                                            data-toggle="lightbox" data-title="sample 10 - white">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=10"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
-                                        <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11"
-                                            data-toggle="lightbox" data-title="sample 11 - white">
-                                            <img src="https://via.placeholder.com/300/FFFFFF?text=11"
-                                                class="img-fluid mb-2" alt="white sample" />
-                                        </a>
-                                    </div>
-                                    <div class="filtr-item col-sm-2" data-category="2, 4" data-sort="black sample">
-                                        <a href="https://via.placeholder.com/1200/000000.png?text=12"
-                                            data-toggle="lightbox" data-title="sample 12 - black">
-                                            <img src="https://via.placeholder.com/300/000000?text=12"
-                                                class="img-fluid mb-2" alt="black sample" />
-                                        </a>
+                                </div> --}}
+
+                                <div class="tab-pane" id="tab_2">
+                                    <div class="row">
+                                        @foreach ($karya as $item)
+                                            @if ($item->type == 'Novel' || $item->type == 'Komik')
+                                                <div class="col-sm-3">
+                                                    <div class="card" style="width: 18rem;">
+                                                        <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
+                                                            class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $item->about }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <div class="card card-primary">
-                        <div class="card-header">
-                            <h4 class="card-title">Ekko Lightbox</h4>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=1"
-                                        data-toggle="lightbox" data-title="sample 1 - white" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FFFFFF?text=1"
-                                            class="img-fluid mb-2" alt="white sample" />
-                                    </a>
+
+                                <div class="tab-pane" id="tab_3">
+                                    <div class="row">
+                                        @foreach ($karya as $item)
+                                            @if ($item->type == 'Novel')
+                                                <div class="col-sm-3">
+                                                    <div class="card" style="width: 18rem;">
+                                                        <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
+                                                            class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $item->about }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/000000.png?text=2"
-                                        data-toggle="lightbox" data-title="sample 2 - black" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/000000?text=2"
-                                            class="img-fluid mb-2" alt="black sample" />
-                                    </a>
+
+                                <div class="tab-pane" id="tab_4">
+                                    <div class="row">
+                                        @foreach ($karya as $item)
+                                            @if ($item->type == 'Komik')
+                                                <div class="col-sm-3">
+                                                    <div class="card" style="width: 18rem;">
+                                                        <img src="https://komik.pendidikan.id/online/komik/kecil_kecil_berbahaya/files/mobile/1.jpg"
+                                                            class="card-img-top" alt="...">
+                                                        <div class="card-body">
+                                                            <p class="card-text">{{ $item->about }}</p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endforeach
+                                    </div>
                                 </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=3"
-                                        data-toggle="lightbox" data-title="sample 3 - red" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=3"
-                                            class="img-fluid mb-2" alt="red sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=4"
-                                        data-toggle="lightbox" data-title="sample 4 - red" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=4"
-                                            class="img-fluid mb-2" alt="red sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/000000.png?text=5"
-                                        data-toggle="lightbox" data-title="sample 5 - black" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/000000?text=5"
-                                            class="img-fluid mb-2" alt="black sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=6"
-                                        data-toggle="lightbox" data-title="sample 6 - white" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FFFFFF?text=6"
-                                            class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=7"
-                                        data-toggle="lightbox" data-title="sample 7 - white" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FFFFFF?text=7"
-                                            class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/000000.png?text=8"
-                                        data-toggle="lightbox" data-title="sample 8 - black" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/000000?text=8"
-                                            class="img-fluid mb-2" alt="black sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FF0000/FFFFFF.png?text=9"
-                                        data-toggle="lightbox" data-title="sample 9 - red" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FF0000/FFFFFF?text=9"
-                                            class="img-fluid mb-2" alt="red sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=10"
-                                        data-toggle="lightbox" data-title="sample 10 - white" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FFFFFF?text=10"
-                                            class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/FFFFFF.png?text=11"
-                                        data-toggle="lightbox" data-title="sample 11 - white" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/FFFFFF?text=11"
-                                            class="img-fluid mb-2" alt="white sample" />
-                                    </a>
-                                </div>
-                                <div class="col-sm-2">
-                                    <a href="https://via.placeholder.com/1200/000000.png?text=12"
-                                        data-toggle="lightbox" data-title="sample 12 - black" data-gallery="gallery">
-                                        <img src="https://via.placeholder.com/300/000000?text=12"
-                                            class="img-fluid mb-2" alt="black sample" />
-                                    </a>
+
+                                <div class="tab-pane" id="tab_5">
+
+                                    <div>
+                                        <div class="card-text">{{ Auth::user()->about }}</div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
@@ -270,6 +154,7 @@
                 </div>
             </div>
         </div>
+        </div><!-- /.container-fluid -->
     </section>
 
 
@@ -284,8 +169,6 @@
     <script src="{{ asset('/dist/js/adminlte.min.js?v=3.2.0') }}"></script>
 
     <script src="{{ asset('/plugins/filterizr/jquery.filterizr.min.js') }}"></script>
-
-    <script src="{{ asset('/dist/js/demo.js') }}"></script>
 
     <script>
         $(function() {
