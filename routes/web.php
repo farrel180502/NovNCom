@@ -52,10 +52,14 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profiles', [ProfileController::class, 'index'])->name('profile.index');
     Route::get('/profiles/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+
+    Route::post('/profiles/follow', [FollowingController::class, 'store'])->name('follow');
+
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
     Route::get('/profiles/{user}/following', [FollowingController::class, 'index'])->name('following.index');
+    Route::get('/following', [FollowingController::class, 'viewfollower']);
     Route::post('/profiles/{user}', [FollowingController::class, 'store'])->name('following.store');
     Route::get('/profiles/{user}/follower', [FollowingController::class, 'follower'])->name('profile.follower');
 });
@@ -93,4 +97,3 @@ Route::get('logout', function () {
 })->name('logout');
 
 require __DIR__ . '/auth.php';
-

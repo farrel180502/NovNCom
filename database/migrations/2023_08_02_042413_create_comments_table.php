@@ -18,6 +18,7 @@ return new class extends Migration
                 ->references('id')->on('users')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
+            $table->text('description');
             $table->timestamps();
         });
     }

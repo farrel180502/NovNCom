@@ -24,7 +24,7 @@ class ProfileController extends Controller
         return view('profiles.index', [
             'karya' => $karya,
             'user' => $user,
-        ]);
+        ], compact('user'));
     }
 
     /**
