@@ -6,6 +6,6 @@
         <img src="{{ asset('images/2Omni.png') }}" >
         <img src="{{ asset('images/3Omni.png') }}" >
         <img src="{{ asset('images/4Omni.png') }}" >
-    </div>  
+    </div>
 </div>
 @endsection

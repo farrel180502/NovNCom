@@ -30,9 +30,13 @@
                                         <a href="{{ url('/profiles/edit') }}">Edit profile</a>
                                     </li>
                                     <li>
-                                        <a href="{{ url('/create/karya') }}">Buat Komik / Novel</a>
+                                        <a href="{{ url('/create/komik') }}">Buat Komik</a>
                                     </li>
                                     <li>
+                                    <a href="{{ url('/create/novel') }}">Buat Novel</a>
+                                </li>
+                                
+                                <li>
                                         <a href="{{ route('logout') }}">Logout</a>
                                     </li>
                                 </ul>
